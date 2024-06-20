@@ -1,26 +1,68 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home:Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Text('Coffee-Vhen'),
-        ),
-        backgroundColor: Colors.brown[400],
-        ),
-      body: Center(
-        child: Image.network('https://ideas.ted.com/wp-content/uploads/sites/3/2022/07/FINAL_Coffee.jpg?resize=1000,600'),
-
+void main() => runApp(MaterialApp(
+  home: Scaffold(
+    backgroundColor: Colors.white,
+    appBar: AppBar(
+      title: Text('User Profile'),
+      backgroundColor: Colors.brown[400],
+      centerTitle: true,
+    ),
+    body: Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'NAME',
+            style: TextStyle(
+              fontSize:25.0,
+              color: Colors.black,
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            'Vhenus M. Tumbaga',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 25.0,
+            ),
+          ),
+          SizedBox(height: 30.0,),
+          Text(
+            'YEAR',
+            style: TextStyle(
+              color: Colors.black,
+                fontSize: 25.0,
+            ),
+          ),
+          Text(
+            'THIRD YEAR',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 25.0,
+            ),
+          ),
+          SizedBox(height: 30.0,),
+          Text(
+            'EMAIL',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 25.0
+            ),
+          ),
+          Text(
+            'jvrclclothing@gmail.com',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 25.0
+            ),
+          ),
+        ],
       ),
-      floatingActionButton:FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.lightBlueAccent[100],
-        child: Icon(
-          Icons.add,
-          color: Colors.blue[800]
-        ),
-      ),
-      ),
-    ));
-}
+    ),
+  ),
+));
