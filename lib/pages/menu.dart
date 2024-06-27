@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:untitled/services/product.dart';
+import 'package:untitled/services/menuCard.dart';
 class Menu extends StatefulWidget {
   const Menu({super.key});
 
@@ -8,10 +9,59 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  List products = <Product>[
+    Product(productName:" Iced Coffee",price:120),
+    Product(productName:"Iced Espresso",price:100),
+    Product(productName:"Frappuccino",price:120),
+    Product(productName:"Cold Brew",price:120),
+    Product(productName:"Caramel Macchiato",price:120),
+  ];
+
+  Widget cardTemplate(product){
+    return Card(
+      color: Colors.purple[50],
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+                product.productName,
+                style: TextStyle(
+                fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text('${product.price}',
+            style: TextStyle(
+                color: Colors.grey[900],
+            )),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('This is Menu'),
+      appBar: AppBar(
+        backgroundColor: Colors.purple[200],
+        title: Text(
+          'Menu',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            letterSpacing: 2.0,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          children: products.map((product) => Menucard(product: product)).toList(),
+      ),
+      ),
     );
   }
 }
