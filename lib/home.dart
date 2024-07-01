@@ -13,13 +13,13 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.brown[300],
       appBar: AppBar(
         title: Text(
             'User Profile',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.brown[300],
         centerTitle: true,
       ),
       body: Padding(
@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Divider(height: 55.0,
-                color: Colors.brown,
+                color: Colors.black,
                   thickness: 3.0,
                 ),
                 Row(
@@ -132,7 +132,7 @@ class _HomeState extends State<Home> {
                         style: TextStyle(color:Colors.white),
                     ),
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.brown)
+                    backgroundColor: WidgetStateProperty.all(Colors.brown[300])
                   ),
                 ),
               ],

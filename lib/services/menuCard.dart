@@ -8,7 +8,7 @@ class Menucard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.purple[50],
+      color: Colors.brown[100],
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
