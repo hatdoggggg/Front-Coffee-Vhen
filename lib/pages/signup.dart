@@ -123,6 +123,29 @@ class _SignupState extends State<Signup> {
                         foregroundColor: Colors.black
                       ),
                     ),
+                    SizedBox(height: 40.0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Already have an account?',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 5.0,),
+                        InkWell(
+                          child: Text(
+                            'Login Here',
+                            style: TextStyle(
+                              color: Colors.limeAccent,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          onTap: ()=> Navigator.pushReplacementNamed(context,'/login'),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
