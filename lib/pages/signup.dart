@@ -17,6 +17,8 @@ class _SignupState extends State<Signup> {
   String username = '';
   String email = '';
   String password = '';
+  bool _obscure = true;
+  IconData _obscureIcon = Icons.visibility_off;
 
 createAccount(User user) async{
   final response = await http.post(
@@ -35,7 +37,7 @@ createAccount(User user) async{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(15.0,50.0,10.0,0),
@@ -101,8 +103,22 @@ createAccount(User user) async{
                     ),
                     SizedBox(height: 30.0,),
                       TextFormField(
-                        obscureText: true,
+                        obscureText: _obscure,
                        decoration: InputDecoration(
+                         prefixIcon: Icon(Icons.lock),
+                         suffixIcon: IconButton(
+                           icon: Icon(_obscureIcon),
+                           onPressed: () {
+                             setState(() {
+                               _obscure = !_obscure;
+                               if(_obscure){
+                                 _obscureIcon = Icons.visibility_off;
+                                }else{
+                                 _obscureIcon = Icons.visibility;
+                                 }
+                             });
+                           },
+                         ),
                        label: Text('Password'),
                         border: OutlineInputBorder(
                          borderRadius: BorderRadius.circular(20.0)
@@ -140,8 +156,8 @@ createAccount(User user) async{
                       },
                       child: Text('Sign Up'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.brown[300],
-                        foregroundColor: Colors.black
+                        backgroundColor: Colors.brown[700],
+                        foregroundColor: Colors.white
                       ),
                     ),
                     SizedBox(height: 40.0,),
@@ -159,7 +175,7 @@ createAccount(User user) async{
                           child: Text(
                             'Login Here',
                             style: TextStyle(
-                              color: Colors.limeAccent,
+                              color: Colors.brown[700],
                               fontWeight: FontWeight.bold,
                             ),
                           ),
