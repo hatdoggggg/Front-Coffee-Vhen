@@ -13,13 +13,23 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow[100],
       appBar: AppBar(
         title: Text(
             'User Profile',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.brown[700],
+        backgroundColor: Colors.brown,
         centerTitle: true,
+        actions: [
+
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: (){
+              Navigator.pushReplacementNamed(context, '/login');
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0),
@@ -31,9 +41,8 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Center(
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/woman.png'),
-                    backgroundColor: Colors.lightGreen,
-                    radius: 50.0,
+                    backgroundImage: AssetImage('assets/tumbaga.jpg'),
+                    radius: 60.0,
                   ),
                 ),
                 Divider(height: 55.0,
@@ -131,7 +140,7 @@ class _HomeState extends State<Home> {
                         style: TextStyle(color:Colors.white),
                     ),
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.brown[700])
+                    backgroundColor: WidgetStateProperty.all(Colors.brown)
                   ),
                 ),
               ],

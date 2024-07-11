@@ -44,12 +44,12 @@ createAccount(User user) async{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget> [
-              Text(
-                'Lets Get Started!',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 2.0,
-                  fontSize: 24.5,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 1.0),
+                child: Image.asset(
+                  'assets/remove.png',
+                  width: 400.0,
+                  height: 200,
                 ),
               ),
               SizedBox(height: 30.0,),

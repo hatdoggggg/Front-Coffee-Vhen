@@ -17,7 +17,7 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   late Future<List<dynamic>> products;
   Future<List<dynamic>>fetchData() async {
-    final response = await http.get(Uri.parse('http://10.0.2.2:8080/product')
+    final response = await http.get(Uri.parse('http://10.0.2.2:8080/api/v1/products/all')
     );
     final data = jsonDecode(response.body);
     print(data);
@@ -38,8 +38,9 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow[100],
       appBar: AppBar(
-        backgroundColor: Colors.brown[700],
+        backgroundColor: Colors.brown,
         title: Text(
           'Menu',
           style: TextStyle(
@@ -91,6 +92,23 @@ class _MenuState extends State<Menu> {
                           ),
                         ],
                       ),
+                    leading:Image.network(products[index].url,
+                      height: 80,
+                      width: 80,
+                      fit: BoxFit.cover,
+                      loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                                : null,
+                          ),
+                        );
+                      },
+                    ),
                     onTap: () {
                           Navigator.push(
                             context,
